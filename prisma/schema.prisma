@@ -18,8 +18,8 @@ model Issue {
   title       String   @db.VarChar(255)
   description String   @db.Text
   status      Status   @default(OPEN)
-  createAt    DateTime @default(now())
-  updateAt    DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 enum Status {
