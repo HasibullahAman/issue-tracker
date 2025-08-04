@@ -2,8 +2,8 @@
 import React from 'react';
 import IssueStatusBadge from '../components/IssueStatusBadge';
 import IssueActions from './IssueActions';
-import * as Table from '@radix-ui/react-table'; // Add this import or update according to your Table component source
-
+import { Table } from '@radix-ui/themes';
+import Link from 'next/link';
 interface Issue {
     id: number;
     title: string;
@@ -27,12 +27,14 @@ const IssueTable = ({ issues }: { issues: Issue[] }) => {
                     {issues.map((issue) => (
                         <Table.Row key={issue.id}>
                             <Table.Cell>
-                                {issue.title}
+                                <Link href={`/issues/${issue.id}`}>
+                                    {issue.title}
+                                </Link>
                                 <div className='block md:hidden'>
                                     <IssueStatusBadge status={issue.status} />
                                 </div>
                             </Table.Cell>
-                            <Table.Cell className='hidden md:table-cell'><IssueStatusBadge status={issue.status}/></Table.Cell>
+                            <Table.Cell className='hidden md:table-cell'><IssueStatusBadge status={issue.status} /></Table.Cell>
                             <Table.Cell className='hidden md:table-cell'>{new Date(issue.createdAt).toDateString()}</Table.Cell>
                         </Table.Row>
                     ))}

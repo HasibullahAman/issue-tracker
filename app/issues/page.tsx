@@ -34,7 +34,7 @@
 
 // export default issuePage;
 
- 
+
 import React from 'react'
 import { prisma } from '@/prisma/client';
 import IssueTable from './IssueTable';
