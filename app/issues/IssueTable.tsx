@@ -1,9 +1,7 @@
 'use client';
-import React from 'react';
-import IssueStatusBadge from '../components/IssueStatusBadge';
-import Link from '../components/Link';
-import IssueActions from './IssueActions';
 import { Table } from '@radix-ui/themes';
+import { IssueStatusBadge, Link } from '../components';
+import IssueActions from './IssueActions';
 interface Issue {
     id: number;
     title: string;

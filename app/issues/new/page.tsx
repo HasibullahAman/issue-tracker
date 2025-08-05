@@ -1,18 +1,17 @@
 'use client';
-import React, { useState } from 'react'
-import SimpleMDE from "react-simplemde-editor";
-import dynamic from 'next/dynamic';
-import { useForm, Controller } from 'react-hook-form';
+import { ErrorMessage, Spinner } from '@/app/components';
+import { createIssueSchema } from "@/app/validationSchemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { InfoCircledIcon } from '@radix-ui/react-icons';
+import { Button, Callout, TextField } from '@radix-ui/themes';
 import axios from 'axios';
 import "easymde/dist/easymde.min.css";
-import { TextField, Button, Callout } from '@radix-ui/themes'
-import { InfoCircledIcon } from '@radix-ui/react-icons';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
-import { zodResolver } from "@hookform/resolvers/zod";
-import { createIssueSchema } from "@/app/validationSchemas"
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import SimpleMDE from "react-simplemde-editor";
 import { z } from 'zod';
-import ErrorMessage from '@/app/components/ErrorMessage';
-import Spinner from '@/app/components/Spinner';
 
 
 // Dynamically import SimpleMDE so it only loads on the client
@@ -68,7 +67,7 @@ const NewIssuePage = () => {
                     name="description"
                     control={control}
                     render={({ field }) => <SimpleMDE placeholder='Your description is here...!' {...field} />}
-                />   
+                />
                 <ErrorMessage>
                     {errors.description?.message}
                 </ErrorMessage>
