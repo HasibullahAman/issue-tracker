@@ -24,7 +24,6 @@ const IssueDetailPage = async ({ params }: Props) => {
             <Card className='prose' mt='4'>
                 <ReactMarkdown>{issue.description}</ReactMarkdown>
             </Card>
-
         </div>
     )
 }
